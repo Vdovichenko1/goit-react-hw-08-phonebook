@@ -7,6 +7,7 @@ import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contactsApi';
+import { Box, Text } from '@chakra-ui/react';
 
 export default function Contacts() {
   const isLoading = useSelector(selectIsLoading);
@@ -18,10 +19,10 @@ export default function Contacts() {
   }, [dispatch]);
 
   return (
-    <>
-      <h1>Phonebook</h1>
+    <Box display='grid' justifyContent='center' textAlign='center' alignItems='center'>
+      <Text fontSize='24px' fontWeight='700' color='teal' marginBottom='20px'>Phonebook</Text>
       <ContactForm />
-      <h2>
+      <Text fontSize='20px' fontWeight='700' color='teal' marginBottom='20px' marginTop='20px'>
         Contacts{' '}
         {isLoading && !error && (
           <BounceLoader
@@ -34,10 +35,10 @@ export default function Contacts() {
             }}
           />
         )}
-      </h2>
+      </Text>
       <Filter />
       <ContactList />
       <ToastContainer autoClose={3000} />
-    </>
+    </Box>
   );
 }

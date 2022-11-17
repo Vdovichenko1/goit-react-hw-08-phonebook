@@ -3,14 +3,12 @@ import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import {
   FormGeneral,
-  LabelForm,
-  InputForm,
-  BtnAddContact,
 } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsApi';
 import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { toast } from 'react-toastify';
+import { Button, Input, InputGroup, InputLeftAddon } from '@chakra-ui/react'
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -44,8 +42,9 @@ export default function ContactForm() {
 
   return (
     <FormGeneral onSubmit={handleSubmit}>
-      <LabelForm>Name</LabelForm>
-      <InputForm
+      <InputGroup>
+        <InputLeftAddon children='Name' />
+      <Input placeholder='Ivanov Ivan' variant='outline' marginBottom='10px'
         type="text"
         name="name"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -54,9 +53,11 @@ export default function ContactForm() {
         id={nanoid()}
         value={name}
         onChange={handleChangeName}
-      />
-      <LabelForm>Number</LabelForm>
-      <InputForm
+        />
+        </InputGroup>
+      <InputGroup>
+        <InputLeftAddon children='+380' />
+      <Input placeholder='+380123456789'  variant='outline' marginBottom='10px'
         type="tel"
         name="number"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -65,8 +66,9 @@ export default function ContactForm() {
         id={nanoid()}
         value={number}
         onChange={handleChangeNumber}
-      />
-      <BtnAddContact type="submit">Add contact</BtnAddContact>
+        />
+        </InputGroup>
+      <Button colorScheme='green' type="submit">Add contact</Button>
     </FormGeneral>
   );
 }

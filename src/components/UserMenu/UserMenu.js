@@ -1,3 +1,4 @@
+import { Box, Button, Text } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { logOutUser } from 'redux/auth/authOperations';
 import { useAuth } from 'redux/auth/use/useAuth';
@@ -7,11 +8,22 @@ export default function UserMenu() {
   const { user } = useAuth();
 
   return (
-    <div>
-      <p>Welcome, {user.name}</p>
-      <button type="button" onClick={() => dispatch(logOutUser())}>
+    <Box
+      display="flex"
+      alignItems="center"
+      textAlign="center"
+      marginRight="20px"
+    >
+      <Text fontSize="16px" fontWeight="500" color="purple" marginRight="10px">
+        Welcome, {user.name}
+      </Text>
+      <Button
+        colorScheme="purple"
+        type="button"
+        onClick={() => dispatch(logOutUser())}
+      >
         Logout
-      </button>
-    </div>
+      </Button>
+    </Box>
   );
 }

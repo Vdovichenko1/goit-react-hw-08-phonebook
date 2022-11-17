@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const Home = lazy(() => import('../redux/auth/pages/Home'));
 const Register = lazy(() => import('../redux/auth/pages/Register'));
@@ -21,7 +22,7 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <ChakraProvider>
       <Suspense fallback={<PacmanLoader color="orange" />}>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -54,6 +55,6 @@ export default function App() {
           </Route>
         </Routes>
       </Suspense>
-    </>
+    </ChakraProvider>
   );
 }
