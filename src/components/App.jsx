@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { PacmanLoader } from 'react-spinners';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 import PublicRoute from './PublicRoute';
@@ -53,7 +53,7 @@ export default function App() {
             />
             
           </Route>
-          <Route path="*" element={<Navigate to="/goit-react-hw-08-phonebook" />} />
+          {/* <Route path="*" element={<Navigate to="/goit-react-hw-08-phonebook" />} /> */}
         </Routes>
       </Suspense>
     </ChakraProvider>
