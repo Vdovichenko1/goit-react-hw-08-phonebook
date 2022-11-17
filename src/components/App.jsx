@@ -26,7 +26,7 @@ export default function App() {
       <Suspense fallback={<PacmanLoader color="orange" />}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to='/login'/> } />
+            <Route index element={<Home />} />
             <Route
               path="/register"
               element={
