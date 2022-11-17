@@ -51,8 +51,9 @@ export default function App() {
                 <PrivateRoute redirectTo="/login" component={<Contacts />} />
               }
             />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            
           </Route>
+          <Route path="*" element={<Navigate to="/goit-react-hw-08-phonebook" />} />
         </Routes>
       </Suspense>
     </ChakraProvider>
