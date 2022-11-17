@@ -34,6 +34,10 @@ export default function ContactForm() {
     contact
       ? toast.error(`${contact.name} is already in contacts`)
         : dispatch(addContact({ name, number }))
+    reset();
+  };
+
+  const reset = () => {
     setName('');
     setNumber('');
   };

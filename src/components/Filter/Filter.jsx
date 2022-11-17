@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { FilterForm, LabelFilter, InputFilter } from "./Filter.styled";
 import { selectFilter } from 'redux/contacts/contactsSelectors';
@@ -20,8 +19,3 @@ export default function Filter() {
         </FilterForm>
     )
 }
-
-// Filter.propTypes = {
-//     value: PropTypes.string.isRequired,
-//     onChange: PropTypes.func.isRequired,
-// }

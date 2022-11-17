@@ -56,10 +56,5 @@ const contactsSlice = createSlice({
   },
 });
 
-// console.log(contactsSlice.actions.addContacts(10));
-
-// Експортуємо генератори екшенів та редюсер
-// export const { addContacts, deleteContacts, filterContacts } =
-//   contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
 export const { filterContacts } = contactsSlice.actions;
