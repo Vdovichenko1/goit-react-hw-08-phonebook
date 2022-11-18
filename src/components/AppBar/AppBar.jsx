@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box} from '@chakra-ui/react';
 import Navigator from 'components/Navigator';
 import UserMenu from 'components/UserMenu';
 import { useSelector } from 'react-redux';
@@ -17,10 +17,10 @@ export default function AppBar() {
       borderBottom="2px solid green"
       paddingBottom="7px"
     >
-      <Text fontSize="22px" fontWeight="700" color="green" marginLeft="10px">
+      <Box fontSize="22px" fontWeight="700" color="green" marginLeft="10px">
         
         <Link to='/'>Phonebook</Link>
-      </Text>
+      </Box>
       {logIn ? <UserMenu /> : <Navigator />}
     </Box>
   );

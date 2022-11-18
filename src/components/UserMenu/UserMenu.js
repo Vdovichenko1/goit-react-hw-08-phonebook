@@ -1,5 +1,6 @@
 import { Box, Button, Text } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { logOutUser } from 'redux/auth/authOperations';
 import { useAuth } from 'redux/auth/use/useAuth';
 
@@ -23,6 +24,9 @@ export default function UserMenu() {
         onClick={() => dispatch(logOutUser())}
       >
         Logout
+      </Button>
+      <Button colorScheme="purple" marginLeft="15px">
+        <NavLink to="/contacts">Contacts</NavLink>
       </Button>
     </Box>
   );
