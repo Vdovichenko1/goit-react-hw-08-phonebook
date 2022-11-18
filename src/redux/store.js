@@ -13,16 +13,23 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 
-const persistConfig = {
-  key: 'contacts',
+// const persistConfig = {
+//   key: 'contacts',
+//   version: 1,
+//   storage,
+//   whitelist: ['contacts'],
+// };
+
+const authPersistConfig = {
+  key: 'auth',
   version: 1,
   storage,
-  whitelist: ['contacts'],
+  whitelist: ['token'],
 };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
     contacts: contactsReducer,
   },
   middleware: getDefaultMiddleware =>
