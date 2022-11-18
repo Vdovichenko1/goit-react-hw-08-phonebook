@@ -7,20 +7,18 @@ const initialState = {
   logIn: false,
 };
 
+const handleFulfilled = (state, { payload }) => {
+  state.user = payload.user;
+  state.token = payload.token;
+  state.logIn = true;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
-    [register.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
-      state.logIn = true;
-    },
-    [logInUser.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
-      state.logIn = true;
-    },
+    [register.fulfilled]: handleFulfilled,
+    [logInUser.fulfilled]: handleFulfilled,
     [logOutUser.fulfilled](state) {
       state.user = { name: null, email: null };
       state.token = null;
