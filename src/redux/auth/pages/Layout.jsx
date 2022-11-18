@@ -6,9 +6,20 @@ import { PacmanLoader } from 'react-spinners';
 
 export default function Layout() {
   return (
-    <Box >
+    <Box>
       <AppBar />
-      <Suspense fallback={<PacmanLoader color="#36d7b7"  cssOverride={{display: 'block', marginLeft: 'auto', marginRight: 'auto'}}/>}>
+      <Suspense
+        fallback={
+          <PacmanLoader
+            color="#36d7b7"
+            cssOverride={{
+              display: 'block',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          />
+        }
+      >
         <Outlet />
       </Suspense>
     </Box>
